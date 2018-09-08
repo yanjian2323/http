@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>proxy</title>
+</head>
+<body>
+	<button id="btn">点击</button>
+	<div>the data is: <span id="text"></span></div>
+	<script type="text/javascript">
+		let index = 0;
+		document.getElementById('btn').addEventListener('click', () => {
+			document.getElementById('text').innerText = '';
+			fetch('/data', {
+				headers: {
+					'X-test-Cache': index++
+				},
+				method: 'get'
+			})
+			.then(res => res.json())
+			.then(data => {
+				document.getElementById('text').innerText = data.data;
+			});
+		}, false);
+	</script>
+</body>
+</html>

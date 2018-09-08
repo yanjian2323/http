@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 1. 跨域ajax的时候，请求会发给服务器，服务器也正常响应，只不过浏览器发现没有access-control-allow-origin会报错
+		// 2. options请求发送的时候，浏览器会发送Accesss-Control-Request-Headers:'X-test,Content-type'和Accesss-Control-Request-Method: 'PUT'
+		fetch('http://127.0.0.1:8889', {
+			method: 'PUT',
+			headers: {
+				'X-test': '111',
+				'Content-Type': 'application/json'
+			}
+		});
+	</script>
+</body>
+</html>
