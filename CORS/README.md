@@ -1,8 +1,17 @@
 ### CORS
 
 1. ajax跨域请求，请求能正常发送到服务器，服务器也能正常响应，只不过浏览器在接收到响应后发现响应头里没有Access-Control-Allow-Origin字段，会在控制台报错
-2. 服务端设置Access-Control-Allow-Origin的value，只能有一个值。如果要同时让多个域名跨域，动态的设置Access-Control-Allow-Origin的value
-3. ajax跨域请求，有时候会首先发送一个预检请求，除了下面的情况，都会发送预检请求
+
+2. 可以禁用浏览器的跨域限制，在命令行输入类似这样的命令
+    ```
+    /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security --user-data-dir=/Users/jianyan
+    ```
+
+3. 服务端设置Access-Control-Allow-Origin的value，只能有一个值。如果要同时让多个域名跨域，动态的设置Access-Control-Allow-Origin的value
+
+4. Access-Control-Allow-Origin 如果设置为*，是不能进行cookie传递的，这种情况下必须设置一个固定的域名
+
+5. ajax跨域请求，有时候会首先发送一个预检请求，除了下面的情况，都会发送预检请求
 
 - 代码中设置了自定义头，比如：
 

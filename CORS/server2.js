@@ -10,6 +10,7 @@ let app = http.createServer((req, res) => {
 	res.setHeader('Access-Control-Allow-Methods', 'PUT');
 	// 5秒之内客户端不发预检请求了
 	res.setHeader('Access-Control-Max-Age', '5');
+	res.setHeader('Access-Control-Allow-Credentials', true);
 	res.end('123');
 });
 
